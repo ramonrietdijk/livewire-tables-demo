@@ -3,28 +3,31 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Company;
+use App\Models\Blog;
+use App\Models\Category;
 use App\Models\User;
 
-/** @extends Factory<User> */
-class UserFactory extends Factory
+/** @extends Factory<Blog> */
+class BlogFactory extends Factory
 {
-    protected $model = User::class;
+    protected $model = Blog::class;
 
     /** @return array<string, mixed> */
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'company_id' => Company::factory(),
-            'is_admin' => false,
+            'title' => fake()->text(100),
+            'body' => fake()->paragraph(),
+            'author_id' => User::factory(),
+            'category_id' => Category::factory(),
+            'published' => fake()->boolean(),
         ];
     }
 
-    public function admin(bool $admin = true): static
+    public function published(bool $published = true): static
     {
         return $this->state(fn (array $attributes) => [
-            'is_admin' => $admin,
+            'published' => $published,
         ]);
     }
 
