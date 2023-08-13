@@ -3,27 +3,37 @@
 namespace App\Http\Livewire;
 
 use App\Models\Blog;
-use App\Models\User;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Enumerable;
 use RamonRietdijk\LivewireTables\Actions\Action;
 use RamonRietdijk\LivewireTables\Columns\BooleanColumn;
+use RamonRietdijk\LivewireTables\Columns\Column;
 use RamonRietdijk\LivewireTables\Columns\DateColumn;
+use RamonRietdijk\LivewireTables\Columns\ImageColumn;
 use RamonRietdijk\LivewireTables\Columns\SelectColumn;
 use RamonRietdijk\LivewireTables\Filters\BooleanFilter;
 use RamonRietdijk\LivewireTables\Filters\DateFilter;
 use RamonRietdijk\LivewireTables\Filters\SelectFilter;
 use RamonRietdijk\LivewireTables\Http\Livewire\LivewireTable;
-use RamonRietdijk\LivewireTables\Columns\Column;
 
 class BlogTable extends LivewireTable
 {
     protected string $model = Blog::class;
 
+    protected array $pollingOptions = [
+        '' => 'None',
+        '10s' => 'Every 10 seconds',
+    ];
+
     protected function columns(): array
     {
         return [
+            ImageColumn::make(__('Thumbnail'), function (Blog $blog): string {
+                return 'https://picsum.photos/32/32?random='.$blog->id;
+            }),
+
             Column::make(__('Title'), 'title')
                 ->sortable()
                 ->searchable(),

@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use Database\Factories\BlogFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
-use Database\Factories\BlogFactory;
 
 /**
  * @property int $id
