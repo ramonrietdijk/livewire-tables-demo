@@ -22,6 +22,8 @@ class BlogTable extends LivewireTable
 {
     protected string $model = Blog::class;
 
+    protected bool $deferLoading = true;
+
     protected array $pollingOptions = [
         '' => 'None',
         '10s' => 'Every 10 seconds',
