@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Models\Blog;
 use App\Models\Category;
@@ -16,7 +16,7 @@ use RamonRietdijk\LivewireTables\Columns\SelectColumn;
 use RamonRietdijk\LivewireTables\Filters\BooleanFilter;
 use RamonRietdijk\LivewireTables\Filters\DateFilter;
 use RamonRietdijk\LivewireTables\Filters\SelectFilter;
-use RamonRietdijk\LivewireTables\Http\Livewire\LivewireTable;
+use RamonRietdijk\LivewireTables\Livewire\LivewireTable;
 
 class BlogTable extends LivewireTable
 {
