@@ -2987,16 +2987,16 @@
         },
         {
             "name": "ramonrietdijk/livewire-tables",
-            "version": "3.2.0",
+            "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramonrietdijk/livewire-tables.git",
-                "reference": "a215fca83b97d883f45ba3c060ee4bc6a4677259"
+                "reference": "53fd8ecc25fad589d235a6d176e49860c49461a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramonrietdijk/livewire-tables/zipball/a215fca83b97d883f45ba3c060ee4bc6a4677259",
-                "reference": "a215fca83b97d883f45ba3c060ee4bc6a4677259",
+                "url": "https://api.github.com/repos/ramonrietdijk/livewire-tables/zipball/53fd8ecc25fad589d235a6d176e49860c49461a1",
+                "reference": "53fd8ecc25fad589d235a6d176e49860c49461a1",
                 "shasum": ""
             },
             "require": {
@@ -3041,9 +3041,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ramonrietdijk/livewire-tables/issues",
-                "source": "https://github.com/ramonrietdijk/livewire-tables/tree/3.2.0"
+                "source": "https://github.com/ramonrietdijk/livewire-tables/tree/3.2.1"
             },
-            "time": "2023-09-09T13:51:12+00:00"
+            "time": "2023-09-09T15:01:13+00:00"
         },
         {
             "name": "ramsey/collection",

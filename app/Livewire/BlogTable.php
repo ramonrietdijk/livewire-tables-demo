@@ -34,9 +34,7 @@ class BlogTable extends LivewireTable
     protected function columns(): array
     {
         return [
-            ImageColumn::make(__('Thumbnail'), function (Blog $blog): string {
-                return 'https://picsum.photos/32/32?random='.$blog->id;
-            }),
+            ImageColumn::make(__('Thumbnail'), 'thumbnail'),
 
             Column::make(__('Title'), 'title')
                 ->sortable()
@@ -64,8 +62,10 @@ class BlogTable extends LivewireTable
                 ->sortable()
                 ->format('F jS, Y'),
 
-            Column::make(__('Actions'), function (Model $model): string {
-                return '<a class="underline" href="#'.$model->getKey().'">Edit</a>';
+            Column::make(__('Actions'), function (Model $model): mixed {
+                return view('actions', [
+                    'model' => $model,
+                ]);
             })
                 ->clickable(false)
                 ->asHtml(),
