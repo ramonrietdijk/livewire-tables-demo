@@ -24,6 +24,8 @@ class BlogTable extends LivewireTable
 
     protected bool $deferLoading = true;
 
+    protected bool $useReordering = true;
+
     protected array $pollingOptions = [
         '' => 'None',
         '10s' => 'Every 10 seconds',
