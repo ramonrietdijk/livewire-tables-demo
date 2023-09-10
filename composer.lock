@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5be41c01ef2d41228daa746450b7cd60",
+    "content-hash": "bfd5352b85e35248f8e112067ae4f78a",
     "packages": [
         {
             "name": "brick/math",
@@ -2987,16 +2987,16 @@
         },
         {
             "name": "ramonrietdijk/livewire-tables",
-            "version": "3.2.1",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramonrietdijk/livewire-tables.git",
-                "reference": "53fd8ecc25fad589d235a6d176e49860c49461a1"
+                "reference": "ed05fb08cb94d5855d92b65ea3c42c4425a4532d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramonrietdijk/livewire-tables/zipball/53fd8ecc25fad589d235a6d176e49860c49461a1",
-                "reference": "53fd8ecc25fad589d235a6d176e49860c49461a1",
+                "url": "https://api.github.com/repos/ramonrietdijk/livewire-tables/zipball/ed05fb08cb94d5855d92b65ea3c42c4425a4532d",
+                "reference": "ed05fb08cb94d5855d92b65ea3c42c4425a4532d",
                 "shasum": ""
             },
             "require": {
@@ -3041,9 +3041,9 @@
             ],
             "support": {
                 "issues": "https://github.com/ramonrietdijk/livewire-tables/issues",
-                "source": "https://github.com/ramonrietdijk/livewire-tables/tree/3.2.1"
+                "source": "https://github.com/ramonrietdijk/livewire-tables/tree/3.3.0"
             },
-            "time": "2023-09-09T15:01:13+00:00"
+            "time": "2023-09-10T09:55:01+00:00"
         },
         {
             "name": "ramsey/collection",

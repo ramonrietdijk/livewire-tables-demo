@@ -5,7 +5,6 @@ namespace App\Livewire;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Enumerable;
 use RamonRietdijk\LivewireTables\Actions\Action;
 use RamonRietdijk\LivewireTables\Columns\BooleanColumn;
@@ -13,6 +12,7 @@ use RamonRietdijk\LivewireTables\Columns\Column;
 use RamonRietdijk\LivewireTables\Columns\DateColumn;
 use RamonRietdijk\LivewireTables\Columns\ImageColumn;
 use RamonRietdijk\LivewireTables\Columns\SelectColumn;
+use RamonRietdijk\LivewireTables\Columns\ViewColumn;
 use RamonRietdijk\LivewireTables\Filters\BooleanFilter;
 use RamonRietdijk\LivewireTables\Filters\DateFilter;
 use RamonRietdijk\LivewireTables\Filters\SelectFilter;
@@ -62,13 +62,8 @@ class BlogTable extends LivewireTable
                 ->sortable()
                 ->format('F jS, Y'),
 
-            Column::make(__('Actions'), function (Model $model): mixed {
-                return view('actions', [
-                    'model' => $model,
-                ]);
-            })
-                ->clickable(false)
-                ->asHtml(),
+            ViewColumn::make(__('Actions'), 'actions')
+                ->clickable(false),
         ];
     }
 
