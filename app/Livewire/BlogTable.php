@@ -78,6 +78,7 @@ class BlogTable extends LivewireTable
                 ),
 
             SelectFilter::make(__('Author'), 'author_id')
+                ->multiple()
                 ->options(
                     User::query()->get()->pluck('name', 'id')->toArray()
                 ),
