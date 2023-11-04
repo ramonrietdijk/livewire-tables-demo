@@ -6,6 +6,7 @@ use Database\Factories\BlogFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -13,6 +14,7 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $title
  * @property string $body
+ * @property ?array $settings
  * @property int $author_id
  * @property ?int $category_id
  * @property bool $published
@@ -26,6 +28,7 @@ class Blog extends Model
     use SoftDeletes;
 
     protected $casts = [
+        'settings' => 'array',
         'published' => 'boolean',
     ];
 
@@ -37,6 +40,11 @@ class Blog extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class);
     }
 
     protected static function newFactory(): BlogFactory

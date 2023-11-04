@@ -18,7 +18,7 @@ class Company extends Model
 {
     use HasFactory;
 
-    public function users(): HasMany
+    public function employees(): HasMany
     {
         return $this->hasMany(User::class);
     }

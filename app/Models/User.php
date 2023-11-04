@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Database\Factories\UserFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -24,6 +25,13 @@ class User extends Model
     protected $casts = [
         'is_admin' => 'boolean',
     ];
+
+    public function uppercase(): Attribute
+    {
+        return Attribute::make(
+            get: fn (): string => strtoupper($this->name),
+        );
+    }
 
     public function company(): BelongsTo
     {

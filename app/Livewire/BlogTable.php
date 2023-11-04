@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Enumerable;
 use RamonRietdijk\LivewireTables\Actions\Action;
@@ -26,11 +27,6 @@ class BlogTable extends LivewireTable
 
     protected bool $useReordering = true;
 
-    protected array $pollingOptions = [
-        '' => 'None',
-        '10s' => 'Every 10 seconds',
-    ];
-
     protected function columns(): array
     {
         return [
@@ -40,7 +36,11 @@ class BlogTable extends LivewireTable
                 ->sortable()
                 ->searchable(),
 
+            Column::make(__('Tags'), 'tags.name')
+                ->searchable(),
+
             SelectColumn::make(__('Category'), 'category.title')
+                ->qualifyUsingAlias()
                 ->options(
                     Category::query()->get()->pluck('title', 'title')->toArray()
                 )
@@ -48,10 +48,12 @@ class BlogTable extends LivewireTable
                 ->searchable(),
 
             Column::make(__('Author'), 'author.name')
+                ->qualifyUsingAlias()
                 ->sortable()
                 ->searchable(),
 
             Column::make(__('Company'), 'author.company.name')
+                ->qualifyUsingAlias()
                 ->sortable()
                 ->searchable(),
 
@@ -81,6 +83,12 @@ class BlogTable extends LivewireTable
                 ->multiple()
                 ->options(
                     User::query()->get()->pluck('name', 'id')->toArray()
+                ),
+
+            SelectFilter::make(__('Tags'), 'tags.id')
+                ->multiple()
+                ->options(
+                    Tag::query()->pluck('name', 'id')->toArray()
                 ),
 
             DateFilter::make(__('Created At'), 'created_at'),
